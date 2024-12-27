@@ -126,27 +126,33 @@ local function orderAttacks(w)
 		return { tes3.physicalAttackType.slash, tes3.physicalAttackType.chop, tes3.physicalAttackType.thrust }
 	end
 
-	if w.chopMax >= w.thrustMax and w.chopMax >= w.slashMax and w.slashMax > w.thrustMax then
+    local com = {
+        slash = w.slashMin + w.slashMax,
+        chop = w.chopMin + w.chopMax,
+        thrust = w.thrustMin + w.thrustMax,
+    }
+
+	if com.chop >= com.thrust and com.chop >= com.slash and com.slash <= com.thrust then
 		return { tes3.physicalAttackType.chop, tes3.physicalAttackType.slash, tes3.physicalAttackType.thrust }
 	end
 
-	if w.chopMax >= w.thrustMax and w.chopMax >= w.slashMax and w.slashMax <= w.thrustMax then
+	if com.chop >= com.thrust and com.chop >= com.slash and com.slash <= com.thrust then
 		return { tes3.physicalAttackType.chop, tes3.physicalAttackType.thrust, tes3.physicalAttackType.slash }
 	end
 
-	if w.thrustMax >= w.chopMax and w.thrustMax >= w.slashMax and w.slashMax > w.chopMax then
+	if com.thrust >= com.chop and com.thrust >= com.slash and com.slash > com.chop then
 		return { tes3.physicalAttackType.thrust, tes3.physicalAttackType.slash, tes3.physicalAttackType.chop }
 	end
 
-	if w.thrustMax >= w.chopMax and w.thrustMax >= w.slashMax and w.slashMax <= w.chopMax then
+	if com.thrust >= com.chop and com.thrust >= com.slash and com.slash <= com.chop then
 		return { tes3.physicalAttackType.thrust, tes3.physicalAttackType.chop, tes3.physicalAttackType.slash }
 	end
 
-	if w.slashMax >= w.chopMax and w.slashMax >= w.thrustMax and w.thrustMax > w.chopMax then
+	if com.slash >= com.chop and com.slash >= com.thrust and com.thrust > com.chop then
 		return { tes3.physicalAttackType.slash, tes3.physicalAttackType.thrust, tes3.physicalAttackType.chop }
 	end
 
-	if w.slashMax >= w.chopMax and w.slashMax >= w.thrustMax and w.thrustMax <= w.chopMax then
+	if com.slash >= com.chop and com.slash >= com.thrust and com.thrust <= com.chop then
 		return { tes3.physicalAttackType.slash, tes3.physicalAttackType.chop, tes3.physicalAttackType.thrust }
 	end
 
