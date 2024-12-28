@@ -43,7 +43,7 @@ local function registerModConfig()
 
     page:createInfo{
         label = configPath,
-        text = "Version 1.0.0\nCreated by Pete Goodfellow\non 27 Dec 2024"
+        text = "Version 1.0.1\nCreated by Pete Goodfellow\non 27 Dec 2024"
     }
 
     if not mge.enabled() then
