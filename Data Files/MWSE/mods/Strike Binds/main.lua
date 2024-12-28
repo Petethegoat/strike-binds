@@ -168,6 +168,7 @@ local thrust = false
 local function onAttackStart(e)
     if not config.enabled then return end
     if e.reference ~= tes3.player then return end
+    if not e.mobile.readiedWeapon then return end
 
     if slash then
 		e.attackType = orderAttacks(e.mobile.readiedWeapon.object)[1]
