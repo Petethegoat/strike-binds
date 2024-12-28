@@ -3,7 +3,7 @@ name = "Strike Binds"
 description = "Bind buttons directly to each attack type."
 repository = "https://github.com/Petethegoat/strike-binds"
 authors = [ "Pete Goodfellow",]
-version = "1.0.1"
+version = "1.0.2"
 
 [dependencies]
 assets = [ "MWSE\\mods\\Strike Binds",]

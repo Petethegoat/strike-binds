@@ -43,7 +43,7 @@ local function registerModConfig()
 
     page:createInfo{
         label = configPath,
-        text = "Version 1.0.1\nCreated by Pete Goodfellow\non 27 Dec 2024"
+        text = "Version 1.0.2\nCreated by Pete Goodfellow\non 27 Dec 2024"
     }
 
     if not mge.enabled() then
@@ -228,3 +228,13 @@ local function onButtonUp(e)
 end
 event.register(tes3.event.keyUp, onButtonUp)
 event.register(tes3.event.mouseButtonUp, onButtonUp)
+
+--- @param e menuEnterEventData
+local function menuEnterCallback(e)
+    if not config.enabled then return end
+    tes3.releaseKey(tes3.getInputBinding(tes3.keybind.use).code)
+    slash = false
+    thrust = false
+    chop = false
+end
+event.register(tes3.event.menuEnter, menuEnterCallback)
